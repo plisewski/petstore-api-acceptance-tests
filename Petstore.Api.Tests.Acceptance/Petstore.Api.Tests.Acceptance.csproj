@@ -16,11 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Drivers\" />
     <Folder Include="Support\" />
     <Folder Include="Tests\Features\User\" />
-    <Folder Include="Tests\Features\Store\" />
-    <Folder Include="Tests\StepDefinitions\" />
+    <Folder Include="Tests\StepDefinitions\User\" />
+    <Folder Include="Tests\StepDefinitions\Store\" />
   </ItemGroup>
 
 </Project>
