@@ -1,11 +1,14 @@
 ﻿namespace Petstore.Api.Tests.Acceptance.RestClient;
 
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Petstore.Api.Tests.Acceptance.Utils;
 using RestSharp;
+using System.Collections.Generic;
 
 public class RestClientManager : IRestClientManager
 {
-    private Lazy<RestClient> _client;
+    private readonly Lazy<RestClient> _client;
 
     public RestClientManager()
     {
@@ -21,8 +24,25 @@ public class RestClientManager : IRestClientManager
         });
     }
 
-    public async Task<RestResponse> ExecuteRequest(RestRequest request) => await _client.Value.ExecuteAsync(request);
+    public async Task<RestResponse> ExecuteRequestAsync(RestRequest request) => await _client.Value.ExecuteAsync(request);
 
+
+    public async Task<RestResponse> ExecutePostRequestAsync<T>(string resource, T requestBody, IDictionary<string, string>? headers) where T : class
+    {
+        var request = new RestRequest(resource, Method.Post)
+            .AddJsonBody(JsonConvert.SerializeObject(requestBody, JsonSettings.DefaultSettings));
+
+        if (headers != null)
+        {
+            foreach (var header in headers)
+            {
+                request.AddHeader(header.Key, header.Value);
+            }
+        }
+
+        return await ExecuteRequestAsync(request);
+    }
+    
     private static IConfiguration LoadConfiguration()
     {
         return new ConfigurationBuilder()
