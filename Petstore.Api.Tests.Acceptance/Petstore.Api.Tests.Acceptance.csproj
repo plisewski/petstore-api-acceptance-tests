@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Tests\Features\User\" />
-    <Folder Include="Tests\Hooks\" />
     <Folder Include="Tests\StepDefinitions\User\" />
     <Folder Include="Tests\StepDefinitions\Store\" />
   </ItemGroup>

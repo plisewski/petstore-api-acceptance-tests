@@ -5,11 +5,11 @@ using Petstore.Api.Tests.Acceptance.RestClient;
 namespace Petstore.Api.Tests.Acceptance.Tests.Hooks;
 
 [Binding]
-public class TestInitializationHook
+public class InitHook
 {
     private readonly IObjectContainer _container;
 
-    public TestInitializationHook(IObjectContainer container)
+    public InitHook(IObjectContainer container)
     {
         _container = container;
     }
