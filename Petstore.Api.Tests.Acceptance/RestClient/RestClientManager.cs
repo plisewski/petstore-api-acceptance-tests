@@ -3,7 +3,7 @@
 using Microsoft.Extensions.Configuration;
 using RestSharp;
 
-public class RestClientManager
+public class RestClientManager : IRestClientManager
 {
     private Lazy<RestClient> _client;
 
