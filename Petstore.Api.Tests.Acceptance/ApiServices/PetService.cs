@@ -12,6 +12,11 @@ public class PetService : BaseService, IPetService
     {
     }
 
+    public async Task<RestResponse> GetPetAsync(long id)
+    {
+        return await RestClientManager.ExecuteGetRequestAsync($"{_resourcePath}/{id}");
+    }
+
     public async Task<RestResponse> CreatePetAsync(Pet pet)
     {
         return await RestClientManager.ExecutePostRequestAsync(_resourcePath, pet, new Dictionary<string, string>
