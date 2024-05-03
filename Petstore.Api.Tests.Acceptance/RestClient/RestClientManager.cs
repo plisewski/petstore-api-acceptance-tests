@@ -26,20 +26,19 @@ public class RestClientManager : IRestClientManager
 
     public async Task<RestResponse> ExecuteRequestAsync(RestRequest request) => await _client.Value.ExecuteAsync(request);
 
+    public async Task<RestResponse> ExecuteGetRequestAsync(string resource, IDictionary<string, string>? headers)
+    {
+        var request = new RestRequest(resource, Method.Get)
+            .AddHeaders(headers);
+
+        return await ExecuteRequestAsync(request);
+    }
 
     public async Task<RestResponse> ExecutePostRequestAsync<T>(string resource, T requestBody, IDictionary<string, string>? headers) where T : class
     {
         var request = new RestRequest(resource, Method.Post)
-            .AddJsonBody(JsonConvert.SerializeObject(requestBody, JsonSettings.DefaultSettings));
-
-        if (headers != null)
-        {
-            foreach (var header in headers)
-            {
-                request.AddHeader(header.Key, header.Value);
-            }
-        }
-
+            .AddJsonBody(JsonConvert.SerializeObject(requestBody, JsonSettings.DefaultSettings))
+            .AddHeaders(headers);
         return await ExecuteRequestAsync(request);
     }
     
