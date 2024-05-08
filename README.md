@@ -9,7 +9,7 @@ The tests are implemented using SpecFlow and RestSharp to interact with the API 
 
 ### Setup and Running Tests
 1. Clone the repository to your local machine.
-2. Ensure you have .NET Core SDK installed.
+2. Ensure you have .NET 8.0 SDK installed (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 3. Navigate to the root directory of the project and run `dotnet test` to execute the tests.
 
 ### Contributing
