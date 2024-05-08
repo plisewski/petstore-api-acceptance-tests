@@ -1,6 +1,6 @@
 # Petstore.Api.Tests.Acceptance
 
-This repository contains acceptance tests for the Petstore API, documented at https://petstore.swagger.io/. 
+This repository contains acceptance tests for sample api called Petstore and hosted at https://petstore.swagger.io/.
 The tests are implemented using SpecFlow and RestSharp to interact with the API endpoints, ensuring they meet the expected functionalities.
 
 ### Example Test Scenarios
