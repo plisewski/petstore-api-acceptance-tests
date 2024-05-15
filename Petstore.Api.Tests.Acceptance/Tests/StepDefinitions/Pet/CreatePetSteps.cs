@@ -26,6 +26,13 @@ public class CreatePetSteps
         _scenarioContext.Set(response);
     }
 
+    [When(@"I create a pet without the required details")]
+    public async Task ICreateAPetWithoutTheRequiredDetailsAsync()
+    {
+        var response = await _petService.CreatePetAsync(null!);
+        _scenarioContext.Set(response);
+    }
+
     [Then(@"I can see new pet is created successfully")]
     public async Task ThenICanSeeNewPetIsCreatedSuccessfully()
     {
