@@ -18,6 +18,7 @@ public class CreatePetSteps
         _petService = petService;
     }
 
+    [Given(@"A pet with the following details exist in the store")]
     [When(@"I create a pet with the following details")]
     public async Task ICreateAPetWithTheFollowingDetailsAsync(Table table)
     {
