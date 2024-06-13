@@ -27,6 +27,14 @@ public class GetPetByIdSteps
         _scenarioContext.Set(petFromService);
     }
 
+    [When(@"I get non-existing pet from the store with ID: (.*)")]
+    public async Task IGetNonExistingPetFromTheStoreAsync(int id)
+    {
+        var petFromService = await _petService.GetPetAsync(id);
+        _scenarioContext.Set(petFromService);
+    }
+
+
     [Then(@"Existing pet is getting successfully")]
     public void ThenExistingPetIsGettingSuccessfully()
     {
