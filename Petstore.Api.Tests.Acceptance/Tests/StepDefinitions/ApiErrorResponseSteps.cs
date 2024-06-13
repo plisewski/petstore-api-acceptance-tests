@@ -1,7 +1,6 @@
 ﻿using Petstore.Api.Tests.Acceptance.Models;
 using Petstore.Api.Tests.Acceptance.Utils;
 using RestSharp;
-using TechTalk.SpecFlow;
 
 namespace Petstore.Api.Tests.Acceptance.Tests.StepDefinitions;
 
